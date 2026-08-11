@@ -14,8 +14,18 @@ The site is designed to communicate technical fluency without reducing Amir to a
 
 ## Run locally
 
-Open `index.html` in a browser. The site uses plain HTML, CSS, and JavaScript and requires no build step.
+Install dependencies and start the Next.js development server:
 
-## Deploy
+```bash
+npm install
+npm run dev
+```
 
-The repository is ready for GitHub Pages. In repository settings, choose **Pages → Deploy from a branch → main / root**.
+Then open [http://localhost:3000](http://localhost:3000). The portfolio routes are `/`, `/work`, `/experience`, and `/about`.
+
+## Production build
+
+```bash
+npm run build
+npm start
+```
