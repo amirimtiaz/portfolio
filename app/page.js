@@ -58,22 +58,39 @@ export default function HomePage() {
 
       <section className="page-links reveal" aria-label="Portfolio sections">
         <div className="section-heading">
-          <p className="eyebrow">Explore</p>
-          <h2>Scroll through the story.</h2>
+          <p className="eyebrow section-kicker">Explore <span>↓</span></p>
+          <h2>Scroll through the story. <i aria-hidden="true">⌁</i></h2>
         </div>
         <div className="link-grid">
           <Link href="#work" className="page-card">
-            <span>01</span>
+            <div className="explore-visual work-explore" aria-hidden="true">
+              <div className="work-orbit"><i /><i /><i /><b>AI</b></div>
+              <div className="mini-window"><i /><i /><i /><b>86</b><em /><small>READY TO SHIP</small></div>
+              <span>PRODUCT / AI</span><strong className="flow-arrow">→</strong>
+            </div>
+            <span className="page-number">01</span>
             <h3>Work</h3>
             <p>Selected product, fintech, and data initiatives.</p>
           </Link>
           <Link href="#experience" className="page-card">
-            <span>02</span>
+            <div className="explore-visual experience-explore" aria-hidden="true">
+              <div className="experience-core">EXP</div>
+              <Image src="/skills/powerbi.svg" alt="" width={34} height={34} />
+              <Image src="/skills/postgresql.svg" alt="" width={34} height={34} />
+              <Image src="/skills/python.svg" alt="" width={34} height={34} />
+              <Image src="/skills/mysql.svg" alt="" width={34} height={34} />
+            </div>
+            <span className="page-number">02</span>
             <h3>Experience</h3>
             <p>Roles and learning moments across strategy and operations.</p>
           </Link>
           <Link href="#about" className="page-card">
-            <span>03</span>
+            <div className="explore-visual about-explore" aria-hidden="true">
+              <div className="person-dot">●</div><div className="chat-bubble">IDEA → IMPACT</div>
+              <div className="about-copy-lines"><i /><i /><i /></div>
+              <div className="robot-arm"><i /><i /><b /></div>
+            </div>
+            <span className="page-number">03</span>
             <h3>About</h3>
             <p>How I think, what I value, and the toolkit I bring.</p>
           </Link>
