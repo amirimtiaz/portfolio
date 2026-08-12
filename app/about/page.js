@@ -1,7 +1,30 @@
-export default function AboutPage() {
+import Image from 'next/image';
+import amirHeadshot from '../images/amir.png';
+
+export default function AboutPage({ showIntro = true }) {
   return (
     <>
-      <section className="manifesto reveal page-section">
+      {showIntro && <section className="about-intro reveal page-section">
+        <div className="about-intro-copy">
+          <p className="eyebrow">About me</p>
+          <h1>
+            Builder. Strategist.
+            <br />
+            <em>Always curious.</em>
+          </h1>
+        </div>
+        <div className="about-portrait">
+          <Image
+            src={amirHeadshot}
+            alt="Headshot of Amir Imtiaz"
+            priority
+            sizes="(max-width: 720px) 100vw, 42vw"
+          />
+          <span aria-hidden="true">AMIR IMTIAZ · DALLAS, TX</span>
+        </div>
+      </section>}
+
+      {showIntro && <section className="manifesto reveal page-section">
         <p className="eyebrow">How I think</p>
         <p className="statement">
           Technology is leverage. <span>The real work is understanding the person, the system, and the problem well enough to know where to apply it.</span>
@@ -11,7 +34,7 @@ export default function AboutPage() {
           <span>Intellectually curious</span>
           <span>Analytical powerhouse</span>
         </div>
-      </section>
+      </section>}
 
       <section className="capabilities reveal page-section">
         <p className="eyebrow">The toolkit</p>
@@ -39,7 +62,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="closing reveal page-section">
+      <section id="contact" className="closing reveal page-section scroll-section">
         <p className="eyebrow">What&apos;s next?</p>
         <h2>
           Let&apos;s build something

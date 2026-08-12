@@ -1,23 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-export function SiteHeader() {
+export function SiteHeader({ visible }) {
   return (
-    <header className="site-header">
+    <header className={`site-header ${visible ? 'site-header-visible' : ''}`}>
       <Link className="wordmark" href="/" aria-label="Amir Imtiaz, home">
         AI<span>·</span>
       </Link>
       <nav aria-label="Primary navigation">
-        <Link href="/work">Work</Link>
-        <Link href="/experience">Experience</Link>
-        <Link href="/about">About</Link>
+        <Link href="/#work">Work</Link>
+        <Link href="/#experience">Experience</Link>
+        <Link href="/#about">About</Link>
       </nav>
-      <a className="contact-link" href="mailto:amir.imtiaz.business@gmail.com">
+      <Link className="contact-link" href="/#contact">
         Let&apos;s talk <span>↗</span>
-      </a>
+      </Link>
     </header>
   );
 }
@@ -30,7 +30,7 @@ export function SiteFooter() {
       </Link>
       <p>Designed &amp; built with intention.</p>
       <div>
-        <a href="https://www.linkedin.com/in/amir-imtiaz" target="_blank" rel="noreferrer">
+        <a href="https://www.linkedin.com/in/amir-imtiaz-flm/" target="_blank" rel="noreferrer">
           LinkedIn ↗
         </a>
         <a href="https://github.com/amirimtiaz" target="_blank" rel="noreferrer">
@@ -46,6 +46,7 @@ export function SiteFooter() {
 
 export function SiteShell({ children }) {
   const pathname = usePathname();
+  const [headerVisible, setHeaderVisible] = useState(false);
 
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');
@@ -63,18 +64,23 @@ export function SiteShell({ children }) {
 
     revealElements.forEach((element) => observer.observe(element));
 
-    const handlePointerMove = (event) => {
-      const orbit = document.querySelector('.hero-orbit');
-      if (!orbit || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const x = (event.clientX / window.innerWidth - 0.5) * 10;
-      const y = (event.clientY / window.innerHeight - 0.5) * 10;
-      orbit.style.transform = `translate(${x}px, ${y}px)`;
+    let scrollFrame;
+    const handleScroll = () => {
+      cancelAnimationFrame(scrollFrame);
+      scrollFrame = requestAnimationFrame(() => {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+        document.documentElement.style.setProperty('--scroll-progress', progress);
+        setHeaderVisible(window.scrollY > Math.min(420, window.innerHeight * 0.48));
+      });
     };
 
-    window.addEventListener('pointermove', handlePointerMove);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
     return () => {
-      window.removeEventListener('pointermove', handlePointerMove);
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(scrollFrame);
       revealElements.forEach((element) => observer.unobserve(element));
     };
   }, [pathname]);
@@ -82,7 +88,8 @@ export function SiteShell({ children }) {
   return (
     <>
       <div className="noise" aria-hidden="true" />
-      <SiteHeader />
+      <div className="scroll-progress" aria-hidden="true" />
+      <SiteHeader visible={headerVisible} />
       <main id="top" className="page-shell">
         {children}
       </main>
