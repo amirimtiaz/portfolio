@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 export function SiteHeader({ visible }) {
@@ -53,6 +53,27 @@ export function SiteFooter() {
 export function SiteShell({ children }) {
   const pathname = usePathname();
   const [headerVisible, setHeaderVisible] = useState(false);
+
+  useLayoutEffect(() => {
+    window.history.scrollRestoration = 'manual';
+
+    const resetRootScroll = () => {
+      if (pathname === '/' && !window.location.hash) {
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        window.scrollTo(0, 0);
+      }
+    };
+
+    resetRootScroll();
+    const frame = window.requestAnimationFrame(resetRootScroll);
+    window.addEventListener('pageshow', resetRootScroll);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener('pageshow', resetRootScroll);
+    };
+  }, [pathname]);
 
   useEffect(() => {
     const revealElements = document.querySelectorAll('.reveal');

@@ -9,7 +9,7 @@ import AboutPage from './about/page';
 export default function HomePage() {
   return (
     <>
-      <section className="hero reveal">
+      <section id="hero" className="hero reveal">
         <HeroScene />
         <div className="hero-content">
           <div className="hero-intro">
