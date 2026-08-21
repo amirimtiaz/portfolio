@@ -5,23 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 
 const roles = [
   {
-    date: 'MAY — AUG 2026',
-    company: 'North Texas Tollway Authority',
-    title: 'Data Analyst Intern - Tolling Analytics & Revenue Operations',
-    team: 'Tolling Analytics & Revenue Operations',
-    location: 'Plano, Texas',
-    logo: '/logos/ntta-orange.png',
-    logoAlt: 'NTTA orange T logo',
-    skills: [
-      { logo: '/skills/powerbi.svg', name: 'Power BI' },
-      { logos: ['/skills/postgresql.svg', '/skills/mysql.svg'], name: 'SQL (Postgres, MySQL)' },
-      { icon: '▥', name: 'Data Storytelling' },
-      { icon: '↗', name: 'Process Design' },
-      { icon: '⌁', name: 'Analytics' },
-    ],
-    images: ['/experience/ntta-field.png', '/experience/ntta-cohort-post.png'],
-  },
-  {
     date: 'JULY 2026 · 1 WEEK FELLOWSHIP',
     company: 'Capital One',
     title: 'Launchpad Leadership Program Fellow',
@@ -184,7 +167,6 @@ export default function ExperiencePage() {
       <section className="recommendations reveal" aria-labelledby="recommendations-title">
         <div><p className="eyebrow">Recommendations</p><h2 id="recommendations-title">Words from people<br/>I&apos;ve worked with.</h2><p>Full recommendation letters from leaders who saw my work, ownership, and impact firsthand.</p></div>
         <div className="recommendation-grid">
-          <a href="/experience/recommendation-ntta.png" target="_blank" rel="noreferrer"><Image src="/experience/recommendation-ntta.png" alt="Recommendation letter from North Texas Tollway Authority" width={1100} height={1428}/><span><b>North Texas Tollway Authority</b><small>Brad Wallesch · Manager, Logistics</small><em>Read full letter ↗</em></span></a>
           <a href="/experience/recommendation-cvs.png" target="_blank" rel="noreferrer"><Image src="/experience/recommendation-cvs.png" alt="Recommendation letter from CVS Pharmacy" width={1102} height={1428}/><span><b>CVS Pharmacy</b><small>Chioma Simon-Ebughu, PharmD</small><em>Read full letter ↗</em></span></a>
         </div>
       </section>
