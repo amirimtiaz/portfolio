@@ -4,7 +4,6 @@ import { ToolCloud } from '../../components/tool-cloud';
 const badges = {
   meridian: [['/skills/openai.svg', 'OpenAI'], ['/skills/cloud.svg', 'Cloud'], ['/skills/figma.svg', 'Figma'], ['/skills/python.svg', 'Python']],
   borderless: [['/skills/openai.svg', 'LLMs'], ['/skills/cloud.svg', 'Cloud'], ['/skills/figma.svg', 'Product'], ['/skills/react.svg', 'Prototype']],
-  supply: [['/skills/powerbi.svg', 'Power BI'], ['/skills/postgresql.svg', 'SQL'], ['/skills/python.svg', 'Python'], ['/skills/cloud.svg', 'Data systems']],
 };
 
 function ProjectBadges({ items }) {
@@ -83,36 +82,7 @@ export default function WorkPage() {
         </div>
       </article>
 
-      <article className="project reveal">
-        <div className="project-visual supply-visual">
-          <div className="supply-app" role="img" aria-label="Supply chain operations dashboard with inventory, cycle time, work stages, and material status">
-            <aside><div className="supply-mark">SC</div><span>Overview</span><span className="active">Operations</span><span>Inventory</span><span>Vendors</span><small>NTTA · SIGN SHOP</small></aside>
-            <section><header><div><small>OPERATIONS INTELLIGENCE</small><b>Supply chain control tower</b></div><span><i/> Live data</span></header>
-              <div className="supply-kpis"><div><small>WIP INVENTORY</small><b>1,284</b><em>↓ 8.4%</em></div><div><small>ON-TIME FLOW</small><b>94.6%</b><em>↑ 3.1%</em></div><div><small>AVG. CYCLE TIME</small><b>4.2d</b><em>↓ 0.8d</em></div><div><small>AT-RISK ITEMS</small><b>23</b><em className="warn">Needs review</em></div></div>
-              <div className="supply-grid"><div className="throughput"><header><b>Weekly throughput</b><small>COMPLETED UNITS</small></header><div className="chart-area"><i/><i/><i/><i/><i/><i/><i/></div><footer><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></footer></div>
-                <div className="status-donut"><header><b>Material status</b><small>1,284 UNITS</small></header><div className="donut"><b>76%</b><small>READY</small></div><p><span>Ready <b>976</b></span><span>In progress <b>214</b></span><span>Blocked <b>94</b></span></p></div>
-                <div className="stage-flow"><header><b>Work stages</b><small>CURRENT LOAD</small></header><p><span>Design <b>248</b></span><i style={{'--fill':'72%'}}/></p><p><span>Print <b>319</b></span><i style={{'--fill':'89%'}}/></p><p><span>Assembly <b>186</b></span><i style={{'--fill':'56%'}}/></p><p><span>QA / Dispatch <b>107</b></span><i style={{'--fill':'38%'}}/></p></div>
-              </div>
-            </section>
-          </div>
-          <div className="visual-tag">03 / DATA SYSTEMS</div>
-        </div>
-        <div className="project-copy">
-          <p className="project-number">03</p>
-          <h3>Supply Chain Intelligence</h3>
-          <p className="project-subtitle">Turning inventory into decisions.</p>
-          <p>
-            Developed a work-in-process inventory framework for NTTA&apos;s Sign Shop transition, translating fragmented operational data into clearer tracking, decision support, and leadership visibility.
-          </p>
-          <div className="project-meta">
-            <span>Data analysis</span>
-            <span>Operations</span>
-            <span>Process design</span>
-            <span>Stakeholders</span>
-          </div>
-          <ProjectBadges items={badges.supply} />
-        </div>
-      </article>
+
     </section>
   );
 }
