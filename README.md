@@ -10,7 +10,6 @@ The site is designed to communicate technical fluency without reducing Amir to a
 
 - **Meridian** — AI-powered recruiting intelligence
 - **Borderless** — cross-border payments and financial inclusion
-- **Supply Chain Intelligence** — operational data and decision support at NTTA
 
 ## Run locally
 
