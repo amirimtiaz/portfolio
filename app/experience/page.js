@@ -164,12 +164,7 @@ export default function ExperiencePage() {
           </article>
         ))}
       </div>
-      <section className="recommendations reveal" aria-labelledby="recommendations-title">
-        <div><p className="eyebrow">Recommendations</p><h2 id="recommendations-title">Words from people<br/>I&apos;ve worked with.</h2><p>Full recommendation letters from leaders who saw my work, ownership, and impact firsthand.</p></div>
-        <div className="recommendation-grid">
-          <a href="/experience/recommendation-cvs.png" target="_blank" rel="noreferrer"><Image src="/experience/recommendation-cvs.png" alt="Recommendation letter from CVS Pharmacy" width={1102} height={1428}/><span><b>CVS Pharmacy</b><small>Chioma Simon-Ebughu, PharmD</small><em>Read full letter ↗</em></span></a>
-        </div>
-      </section>
+
     </section>
   );
 }
